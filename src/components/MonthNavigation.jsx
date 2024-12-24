@@ -68,12 +68,20 @@ const MonthButton = styled.button`
 
 const MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-export default function MonthNavigation() {
+export default function MonthNavigation({ setSelectedMonth, selectedMonth }) {
   return (
     <Section>
       <MonthWrapper>
         {MONTHS.map((element) => {
-          return <MonthButton key={element}>{`${element}월`}</MonthButton>;
+          return (
+            <MonthButton
+              key={element}
+              selected={selectedMonth === element}
+              onClick={() => {
+                setSelectedMonth(element);
+              }}
+            >{`${element}월`}</MonthButton>
+          );
         })}
       </MonthWrapper>
     </Section>
