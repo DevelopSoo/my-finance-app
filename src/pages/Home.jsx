@@ -38,15 +38,14 @@ function Home() {
     return month === selectedMonth;
   });
 
-  console.log(filteredExpenses);
   return (
     <Container>
       <MonthNavigation
         setSelectedMonth={setSelectedMonth}
         selectedMonth={selectedMonth}
       />
-      <CreateExpense />
-      <ExpenseList />
+      <CreateExpense expenses={expenses} setExpenses={setExpenses} />
+      <ExpenseList expenses={filteredExpenses} />
     </Container>
   );
 }
